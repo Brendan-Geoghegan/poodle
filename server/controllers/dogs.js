@@ -8,6 +8,11 @@ router.get("/", (req, res) => {
     res.send(dogsData);
 });
 
+router.get('/random', (req, res) => {
+    const randDog = Dog.randomDog;
+    res.send(randDog);
+  })
+
 router.get("/:id", (req, res) => {
     try {
         const id = parseInt(req.params.id);
@@ -21,6 +26,9 @@ router.get("/:id", (req, res) => {
         res.status(404).send({message: err.message})
     }
 })
+
+
+
 
 // Unused
 router.post("/", (req, res) => {
