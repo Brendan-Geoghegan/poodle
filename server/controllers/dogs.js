@@ -8,10 +8,30 @@ router.get("/", (req, res) => {
     res.send(dogsData);
 });
 
+router.get('/random', (req, res) => {
+    const randDog = Dog.randomDog;
+    res.send(randDog);
+  })
+
 router.get("/:id", (req, res) => {
     try {
         const id = parseInt(req.params.id);
         const selectedDog = Dog.findById(id);
+        if (!selectedDog) {
+            throw new Error("Dog not found")
+        }
+        res.send(selectedDog)
+    } catch (err) {
+        console.log(err)
+        res.status(404).send({message: err.message})
+    }
+})
+
+router.get("/breed/:breed", (req, res) => {
+    try {
+        console.log(req.params.breed)
+        const breed = req.params.breed;
+        const selectedDog = Dog.findByBreed(breed);
         if (!selectedDog) {
             throw new Error("Dog not found")
         }

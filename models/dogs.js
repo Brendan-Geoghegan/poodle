@@ -20,6 +20,16 @@ class Dog {
         return dog
     }
 
+    static findByBreed(breed) {
+        const dogData = dogsData.filter((dog) => dog.breed === breed)[0];
+        if (!dogData) {
+            return;
+        }
+        const dog = new Dog (dogData);
+        return dog
+    }
+
+    // Unused
     static create(dog) {
         const newDogId = dogsData.length + 1;
         const newDog = new Dog({id: newDogId, ...dog});
@@ -27,9 +37,12 @@ class Dog {
         return newDog;
     }
 
-    static random() {
-        const randomDog = dogData[Math.floor(Math.random() * dogData.length)];
-        return randomDog;
+    static get randomDog() {
+        const num = Math.floor(Math.random() * dogsData.length);
+        const randomDog = dogsData.filter((dog) => dog.id === num)[0];
+        console.log(randomDog);
+        const dog = new Dog (randomDog);
+        return dog;
     }
 }
 
