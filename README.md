@@ -1,4 +1,5 @@
 # Code challenge - Poodle Search engine
+![Poodle Logo](./media/poodle.png "Poodle Logo")
 ## Description
 - Searches for dog breeds and returns a url to their wikipedia.
 - returns results based on descriptive keywords.
