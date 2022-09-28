@@ -3,7 +3,7 @@ const dogsData = require('../data');
 class Dog {
     constructor(data) {
         this.id = data.id;
-        this.breed = data.name;
+        this.breed = data.breed;
         this.link = data.link;
     }
 
@@ -21,6 +21,16 @@ class Dog {
         return dog
     }
 
+    static findByBreed(breed) {
+        const dogData = dogsData.filter((dog) => dog.breed === breed)[0];
+        if (!dogData) {
+            return;
+        }
+        const dog = new Dog (dogData);
+        return dog
+    }
+
+    // Unused
     static create(dog) {
         const newDogId = dogsData.length + 1;
         const newDog = new Dog({id: newDogId, ...dog});

@@ -13,6 +13,7 @@
 ## Changelog
 ## bugs
 ## Wins and Challenges
+* searchById vs searchByBreed - /:id and /:breed fought for priority, had to change to /breed/:breed to work
 
 ## Links
 
