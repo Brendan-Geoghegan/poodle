@@ -5,7 +5,11 @@
 - I'm feeling lucky button returns random wikipeia dog page.
 
 
-## instructions and usage
+## Instructions and Usage
+* Clone repo
+* cd to server
+* npm run poodle
+
 ## Changelog
 ## bugs
 ## Wins and Challenges
