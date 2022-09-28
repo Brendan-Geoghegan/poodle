@@ -3,7 +3,7 @@ const dogsData = require('../data');
 class Dog {
     constructor(data) {
         this.id = data.id;
-        this.breed = data.breed;
+        this.breed = data.name;
     }
 
     static get all() {
@@ -27,9 +27,12 @@ class Dog {
         return newDog;
     }
 
-    static random() {
-        const randomDog = dogData[Math.floor(Math.random() * dogData.length)];
-        return randomDog;
+    static get randomDog() {
+        const num = Math.floor(Math.random() * dogsData.length);
+        const randomDog = dogsData.filter((dog) => dog.id === num)[0];
+        console.log(randomDog);
+        const dog = new Dog (randomDog);
+        return dog;
     }
 }
 
