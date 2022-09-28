@@ -17,6 +17,11 @@ class Dog {
         dogsData.push(newDog)
         return newDog;
     }
+
+    static random() {
+        const randomDog = dogData[Math.floor(Math.random() * dogData.length)];
+        return randomDog;
+    }
 }
 
 module.exports = Dog;
