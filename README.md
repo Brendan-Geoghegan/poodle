@@ -9,3 +9,7 @@
 ## Changelog
 ## bugs
 ## Wins and Challenges
+
+## Links
+
+* https://gist.github.com/getfutureproof-admin/38f7a28d8b86907d8c3c0fded3b55fb3 - Assignment Brief
