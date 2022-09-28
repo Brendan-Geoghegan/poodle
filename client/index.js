@@ -1,11 +1,10 @@
 const searchResults = document.getElementById('searchResults');
-const feelingLuckyButton = document.getElementById("feelingLucky");
+const feelingLuckyButton = document.getElementById("feelingLuckyButton");
 const poodleSearchButton = document.getElementById("poodleSearchForm");
 
 async function poodleSearch(name) {
-    // e.preventDefault();
     try {
-        const rawData = await fetch(`http://localhost:8000/dogs/${name}`);
+        const rawData = await fetch(`http://localhost:8000/dogs/breed/${name}`);
         console.log(rawData);
         const dogData = await rawData.json();
         console.log(dogData);
@@ -31,24 +30,33 @@ const createSearchResult = (dogData) => {
 
 
 async function feelingLucky() {
-    const id = Math.ceil(Math.random() * 3);
-    console.log(id);
-    const rawData = await fetch(`http://localhost:8000/dogs/${id}`);
-    const dogData = await rawData.json();
-    console.log(dogData);
-    dogURL = dogData.link
-    console.log(dogURL);
-    window.open(dogURL);
+    try {
+        const id = Math.ceil(Math.random() * 3);
+        console.log(id);
+        const rawData = await fetch(`http://localhost:8000/dogs/${id}`);
+        const dogData = await rawData.json();
+        console.log(dogData);
+        dogURL = dogData.link
+        console.log(dogURL);
+        window.open(dogURL);
+    } catch (err) {
+        console.log(err);
+    }
+    
 }
 
-poodleSearch(3);
-// feelingLuckyButton.addEventListener("onclick", feelingLucky());
-//     } catch (err) {);
+feelingLucky();
 
-poodleSearchButton.addEventListener("click", (e) => {
+// feelingLuckyButton.addEventListener("click", () => {
+//     feelingLucky();
+// });
+
+poodleSearchButton.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const search = e.target.searchbar.value;
+    console.log(search);
     searchResults.innerHTML = "";
-    e.preventDefault;
-    poodleSearch(1);
+    poodleSearch(search);
 });
 
 
