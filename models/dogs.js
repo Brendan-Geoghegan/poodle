@@ -4,6 +4,7 @@ class Dog {
     constructor(data) {
         this.id = data.id;
         this.breed = data.breed;
+        this.link = data.link;
     }
 
     static get all() {
