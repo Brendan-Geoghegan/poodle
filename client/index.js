@@ -2,7 +2,7 @@ const searchResults = document.getElementById('searchResults');
 const feelingLuckyButton = document.getElementById("feelingLucky");
 const poodleSearchButton = document.getElementById("poodleSearchForm");
 
-async function poodleSearch(name, e) {
+async function poodleSearch(name) {
     // e.preventDefault();
     try {
         const rawData = await fetch(`http://localhost:8000/dogs/${name}`);
@@ -45,9 +45,11 @@ poodleSearch(3);
 // feelingLuckyButton.addEventListener("onclick", feelingLucky());
 //     } catch (err) {);
 
-// poodleSearchButton.addEventListener("submit", () => {
-//     poodleSearch(1);
-// });
+poodleSearchButton.addEventListener("click", (e) => {
+    searchResults.innerHTML = "";
+    e.preventDefault;
+    poodleSearch(1);
+});
 
 
 // function feelingLucky() {
