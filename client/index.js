@@ -14,6 +14,30 @@ async function poodleSearch(name) {
     }
 }
 
+async function poodleSearchByAttribute(atr) {
+    try {
+        const rawData = await fetch(`http://localhost:8000/dogs`);
+        const dogData = await rawData.json();
+        console.log(dogData);
+        const dogsWithAtr = [];
+        let dogAtr;
+        for(let i = 0; i < dogData.length; i++) {
+            dogAtr = dogData[i].attributes;
+            for (let j = 0; j < dogAtr.length; j++) {
+                if (dogAtr[j] === atr) {
+                    dogsWithAtr.push(dogData[i]);
+                }
+            }
+        }
+        for (let k = 0; k < dogsWithAtr.length; k++) {
+            createSearchResult(dogsWithAtr[k]);
+        }
+        console.log(dogsWithAtr);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
 const createSearchResult = (dogData) => {
     const result = document.createElement("div");
     searchResults.appendChild(result);
@@ -45,6 +69,25 @@ async function feelingLucky() {
     
 }
 
+async function whatSearch(search) {
+    try {
+        const rawData = await fetch(`http://localhost:8000/dogs`);
+        const dogData = await rawData.json();
+        for(let i = 0; i < dogData.length; i++) {
+            if (dogData[i].breed === search) {
+                poodleSearch(search);
+                return;
+            }
+        }
+        poodleSearchByAttribute(search);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+
+// poodleSearchByAttribute("big");
+
 feelingLucky();
 
 // feelingLuckyButton.addEventListener("click", () => {
@@ -56,7 +99,8 @@ poodleSearchButton.addEventListener("submit", (e) => {
     const search = e.target.searchbar.value;
     console.log(search);
     searchResults.innerHTML = "";
-    poodleSearch(search);
+    // poodleSearch(search);
+    whatSearch(search);
 });
 
 
