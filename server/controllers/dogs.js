@@ -27,8 +27,20 @@ router.get("/:id", (req, res) => {
     }
 })
 
-
-
+router.get("/breed/:breed", (req, res) => {
+    try {
+        console.log(req.params.breed)
+        const breed = req.params.breed;
+        const selectedDog = Dog.findByBreed(breed);
+        if (!selectedDog) {
+            throw new Error("Dog not found")
+        }
+        res.send(selectedDog)
+    } catch (err) {
+        console.log(err)
+        res.status(404).send({message: err.message})
+    }
+})
 
 // Unused
 router.post("/", (req, res) => {
