@@ -3,7 +3,7 @@ const dogsData = require('../data');
 class Dog {
     constructor(data) {
         this.id = data.id;
-        this.breed = data.breed;
+        this.breed = data.name;
     }
 
     static get all() {
