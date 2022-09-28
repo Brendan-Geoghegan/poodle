@@ -5,6 +5,7 @@ class Dog {
         this.id = data.id;
         this.breed = data.breed;
         this.link = data.link;
+        this.attributes = data.attributes;
     }
 
     static get all() {

@@ -1,15 +1,38 @@
 const searchResults = document.getElementById('searchResults');
-const feelingLuckyButton = document.getElementById("feelingLucky");
+const feelingLuckyButton = document.getElementById("feelingLuckyButton");
 const poodleSearchButton = document.getElementById("poodleSearchForm");
 
 async function poodleSearch(name) {
-    // e.preventDefault();
     try {
-        const rawData = await fetch(`http://localhost:8000/dogs/${name}`);
+        const rawData = await fetch(`http://localhost:8000/dogs/breed/${name}`);
         console.log(rawData);
         const dogData = await rawData.json();
         console.log(dogData);
         createSearchResult(dogData);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+async function poodleSearchByAttribute(atr) {
+    try {
+        const rawData = await fetch(`http://localhost:8000/dogs`);
+        const dogData = await rawData.json();
+        console.log(dogData);
+        const dogsWithAtr = [];
+        let dogAtr;
+        for(let i = 0; i < dogData.length; i++) {
+            dogAtr = dogData[i].attributes;
+            for (let j = 0; j < dogAtr.length; j++) {
+                if (dogAtr[j] === atr) {
+                    dogsWithAtr.push(dogData[i]);
+                }
+            }
+        }
+        for (let k = 0; k < dogsWithAtr.length; k++) {
+            createSearchResult(dogsWithAtr[k]);
+        }
+        console.log(dogsWithAtr);
     } catch (err) {
         console.log(err);
     }
@@ -31,24 +54,53 @@ const createSearchResult = (dogData) => {
 
 
 async function feelingLucky() {
-    const id = Math.ceil(Math.random() * 3);
-    console.log(id);
-    const rawData = await fetch(`http://localhost:8000/dogs/${id}`);
-    const dogData = await rawData.json();
-    console.log(dogData);
-    dogURL = dogData.link
-    console.log(dogURL);
-    window.open(dogURL);
+    try {
+        const id = Math.ceil(Math.random() * 21);
+        console.log(id);
+        const rawData = await fetch(`http://localhost:8000/dogs/${id}`);
+        const dogData = await rawData.json();
+        console.log(dogData);
+        dogURL = dogData.link
+        console.log(dogURL);
+        window.open(dogURL);
+    } catch (err) {
+        console.log(err);
+    }
+    
 }
 
-poodleSearch(3);
-// feelingLuckyButton.addEventListener("onclick", feelingLucky());
-//     } catch (err) {);
+async function whatSearch(search) {
+    try {
+        const rawData = await fetch(`http://localhost:8000/dogs`);
+        const dogData = await rawData.json();
+        for(let i = 0; i < dogData.length; i++) {
+            if (dogData[i].breed === search) {
+                poodleSearch(search);
+                return;
+            }
+        }
+        poodleSearchByAttribute(search);
+    } catch (err) {
+        console.log(err);
+    }
+}
 
-poodleSearchButton.addEventListener("click", (e) => {
+
+// poodleSearchByAttribute("big");
+
+feelingLucky();
+
+// feelingLuckyButton.addEventListener("click", () => {
+//     feelingLucky();
+// });
+
+poodleSearchButton.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const search = e.target.searchbar.value;
+    console.log(search);
     searchResults.innerHTML = "";
-    e.preventDefault;
-    poodleSearch(1);
+    // poodleSearch(search);
+    whatSearch(search);
 });
 
 
