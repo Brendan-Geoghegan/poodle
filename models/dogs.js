@@ -11,6 +11,15 @@ class Dog {
         return dogs
     }
 
+    static findById(id) {
+        const dogData = dogsData.filter((dog) => dog.id === id)[0];
+        if (!dogData) {
+            return;
+        }
+        const dog = new Dog (dogData);
+        return dog
+    }
+
     static create(dog) {
         const newDogId = dogsData.length + 1;
         const newDog = new Dog({id: newDogId, ...dog});
