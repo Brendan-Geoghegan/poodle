@@ -1,0 +1,9 @@
+body {
+    font-family: 'Rubik', sans-serif;
+}
+
+#mainDiv {
+    margin: auto;
+    width: 50%;
+    height: 50%;
+}
