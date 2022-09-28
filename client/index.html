@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../media/favicon.ico">
     <title>Poodle</title>
     <link rel="stylesheet" href="./style.css">
     <script defer src="./index.js"></script>
 </head>
+
 <body>
     <div id="mainDiv">
-    <img src="../media/Poodle.png" alt="Poodle Logo">
-    <form id="poodleSearchForm">
-        <input type="text" id="searchbar" placeholder="Enter dog breed or attribute">
-        <input id="poodleSearch" type='submit' value="Poodle Search">
-    </form>
-    <form>
-        <input id="feelingLucky" type='submit' value="I'm  feeling lucky">
-    </form>
+        <img id="poodleLogo" src="../media/poodle.png" alt="Poodle Logo" class="center">
+        <div id="buttonDiv">
+            <form id="poodleSearchForm">
+                <input type="text" id="searchbar" placeholder="Enter dog breed or attribute">
+                <input id="poodleSearch" type='submit' value="Poodle Search">
+            </form>
+            <form>
+                <input id="feelingLucky" type='submit' value="I'm feeling lucky">
+            </form>
+        </div>
 
-    <section id="searchResults">
+        <section id="searchResults">
 
-    </section>
+        </section>
     </div>
 </body>
+
 </html>
