@@ -31,7 +31,7 @@ const createSearchResult = (dogData) => {
 
 async function feelingLucky() {
     try {
-        const id = Math.ceil(Math.random() * 3);
+        const id = Math.ceil(Math.random() * 21);
         console.log(id);
         const rawData = await fetch(`http://localhost:8000/dogs/${id}`);
         const dogData = await rawData.json();
