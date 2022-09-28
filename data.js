@@ -1,8 +1,8 @@
 const dogBreeds = [
-    { id: 1, breed: "Labrador Retrievers", link: "https://en.wikipedia.org/wiki/Labrador_Retriever"},
-    { id: 2, breed: "French Bulldogs", link: "https://en.wikipedia.org/wiki/French_Bulldog"},
-    { id: 3, breed: "Golden Retrievers", link: "https://en.wikipedia.org/wiki/Golden_Retriever"},
-    { id: 4, breed: "German Shepherds", link: "https://en.wikipedia.org/wiki/Golden_Retriever"},
+    { id: 1, breed: "Labrador-Retrievers", link: "https://en.wikipedia.org/wiki/Labrador_Retriever"},
+    { id: 2, breed: "French-Bulldogs", link: "https://en.wikipedia.org/wiki/French_Bulldog"},
+    { id: 3, breed: "Golden-Retrievers", link: "https://en.wikipedia.org/wiki/Golden_Retriever"},
+    { id: 4, breed: "German-Shepherds", link: "https://en.wikipedia.org/wiki/Golden_Retriever"},
     { id: 5, breed: "Poodle", link: "https://en.wikipedia.org/wiki/Golden_Retriever"},
     { id: 6, breed: "Bulldogs", link: "https://en.wikipedia.org/wiki/Golden_Retriever"},
     { id: 7, breed: "Beagles", link: "https://en.wikipedia.org/wiki/Golden_Retriever"},
