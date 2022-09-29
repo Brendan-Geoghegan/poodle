@@ -13,7 +13,7 @@ const dogBreeds = [
     { id: 12, breed: "Australian Shepherds", link: "https://en.wikipedia.org/wiki/Australian_Shepherd", attributes: ["big", "long-haired", "quiet", "happy"]},
     { id: 13, breed: "Yorkshire Terriers", link: "https://en.wikipedia.org/wiki/Boxer_(dog)", attributes: ["small", "short-haired", "loud", "grumpy"]},
     { id: 14, breed: "Boxers", link: "https://en.wikipedia.org/wiki/Golden_Retriever", attributes: ["big", "long-haired", "quiet", "happy"]},
-    { id: 15, breed: "King Charles Spaniels", link: "https://en.wikipedia.org/wiki/Cavalier_King_Charles_Spaniel", attributes: ["small", "short-haired", "loud", "grumpy"]},
+    { id: 15, breed: "King Charles Spaniels", link: "https://en.wikipedia.org/wiki/Cavalier_King_Charles_Spaniel", attributes: ["small", "short-haired", "loud", "grumpy"], image: "https://upload.wikimedia.org/wikipedia/commons/5/5f/CarterBIS.Tiki.13.6.09.jpg"},
     { id: 16, breed: "Dobermann Pinschers", link: "https://en.wikipedia.org/wiki/Dobermann", attributes: ["big", "long-haired", "quiet", "happy"]},
     { id: 17, breed: "Great Danes", link: "https://en.wikipedia.org/wiki/Great_Dane", attributes: ["small", "short-haired", "loud", "grumpy"]},
     { id: 18, breed: "Miniature Schnauzers", link: "https://en.wikipedia.org/wiki/Miniature_Schnauzer", attributes: ["big", "long-haired", "quiet", "happy"]},

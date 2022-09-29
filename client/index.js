@@ -43,7 +43,7 @@ async function poodleSearchByAttribute(atr) {
 const createSearchResult = (dogData) => {
     const result = document.createElement("div");
     result.style.display = "grid";
-    result.style["grid-template"] = "1fr / 1fr 1fr";
+    result.style["grid-template"] = "1fr / 50% 50%";
     result.style["margin-bottom"] = "10px";
     searchResults.appendChild(result);
 
@@ -66,6 +66,8 @@ const createSearchResult = (dogData) => {
 
     const dogImage = document.createElement("img");
     dogImage.style.width = "40%";
+    dogImage.style["aspect-ratio"] = "1.4";
+    // dogImage.style.height = "auto";
     dogImage.style.display = "block";
     dogImage.src = dogData.image;
     dogImage.style["margin-left"] = "auto";
