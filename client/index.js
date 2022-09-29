@@ -42,16 +42,35 @@ async function poodleSearchByAttribute(atr) {
 
 const createSearchResult = (dogData) => {
     const result = document.createElement("div");
+    result.style.display = "grid";
+    result.style["grid-template"] = "1fr / 1fr 1fr";
+    result.style["margin-bottom"] = "10px";
     searchResults.appendChild(result);
+
+    const infoDiv = document.createElement("div");
+    infoDiv.style["grid-area"] = "1 / 1 / span 1 / span 1";
+    result.appendChild(infoDiv);
 
     const dogName = document.createElement("h3");
     dogName.textContent = dogData.breed;
-    result.appendChild(dogName);
+    infoDiv.appendChild(dogName);
 
     const dogURL = document.createElement("a");
     dogURL.textContent = dogData.link;
     dogURL.href = dogData.link;
-    result.appendChild(dogURL);
+    infoDiv.appendChild(dogURL);
+
+    const imageDiv = document.createElement("div");
+    imageDiv.style["grid-area"] = "1 / 2 / span 1 / span 1";
+    result.appendChild(imageDiv);
+
+    const dogImage = document.createElement("img");
+    dogImage.style.width = "40%";
+    dogImage.style.display = "block";
+    dogImage.src = dogData.image;
+    dogImage.style["margin-left"] = "auto";
+    dogImage.style["margin-right"] = "auto";
+    imageDiv.appendChild(dogImage);
 }
 
 function feelingLucky(e){
