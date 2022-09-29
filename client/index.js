@@ -42,16 +42,41 @@ async function poodleSearchByAttribute(atr) {
 
 const createSearchResult = (dogData) => {
     const result = document.createElement("div");
+    result.style.display = "grid";
+    result.style["grid-template"] = "1fr / 50% 50%";
+    result.style["margin-bottom"] = "10px";
     searchResults.appendChild(result);
+
+    const infoDiv = document.createElement("div");
+    infoDiv.style["grid-area"] = "1 / 1 / span 1 / span 1";
+    infoDiv.style["word-break"] = "break-all";
+    result.appendChild(infoDiv);
 
     const dogName = document.createElement("h3");
     dogName.textContent = dogData.breed;
-    result.appendChild(dogName);
+    infoDiv.appendChild(dogName);
 
     const dogURL = document.createElement("a");
-    dogURL.textContent = dogData.link;
+    const dogURLText = document.createElement("p");
+    dogURLText.textContent = dogData.link;
+    dogURL.appendChild(dogURLText);
     dogURL.href = dogData.link;
-    result.appendChild(dogURL);
+    dogURLText.style["white-space"] = "normal";
+    infoDiv.appendChild(dogURL);
+
+    const imageDiv = document.createElement("div");
+    imageDiv.style["grid-area"] = "1 / 2 / span 1 / span 1";
+    result.appendChild(imageDiv);
+
+    const dogImage = document.createElement("img");
+    dogImage.style.width = "40%";
+    dogImage.style["aspect-ratio"] = "1.4";
+    dogImage.style.display = "block";
+    dogImage.src = dogData.image;
+    dogImage.alt = `Picture of ${dogData.breed}`
+    dogImage.style["margin-left"] = "auto";
+    dogImage.style["margin-right"] = "auto";
+    imageDiv.appendChild(dogImage);
 }
 
 function feelingLucky(e){
