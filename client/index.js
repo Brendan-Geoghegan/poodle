@@ -74,6 +74,7 @@ const createSearchResult = (dogData) => {
     // dogImage.style.height = "auto";
     dogImage.style.display = "block";
     dogImage.src = dogData.image;
+    dogImage.alt = `Picture of ${dogData.breed}`
     dogImage.style["margin-left"] = "auto";
     dogImage.style["margin-right"] = "auto";
     imageDiv.appendChild(dogImage);
