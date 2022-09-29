@@ -12,7 +12,7 @@
 2 `cd server` to get to the server folder.
 3 Run `npm install` to install node packages.
 ### Usage
-- `cd server` to get to the server file and run `npm run dev` in the terminal to run server.
+- `cd server` to get to the server file and run `npm run poodle` in the terminal to run server.
 - Right click on `index.html` and select open live server to view in browser.
 - Search for breeds in the searchbar, corrisponding to breeds in the `data.js` file. Eg: Poodle, Golden-Retrievers
 - Search for attributes in the searchbar, corrisponding to attributes in the data.js file. Eg: small, big, short-haired, etc.
@@ -40,7 +40,7 @@ Search
 - created methods for getting all dog data and finding by id
 - creating method for find by breed
 ## bugs
-- i'm feeling lucky button needs event listener so that it does'nt open a new tab with each refresh.
+- i'm feeling lucky button needs event listener so that it doesn't open a new tab with each refresh.
 - tests are needed to check that each function is working properly.
 - areas where hard code is used need to be changed to soft code.
 ## Wins and Challenges

@@ -53,21 +53,32 @@ const createSearchResult = (dogData) => {
 }
 
 
-async function feelingLucky() {
-    try {
-        const id = Math.ceil(Math.random() * 21);
-        console.log(id);
-        const rawData = await fetch(`http://localhost:8000/dogs/${id}`);
-        const dogData = await rawData.json();
-        console.log(dogData);
-        dogURL = dogData.link
-        console.log(dogURL);
-        window.open(dogURL);
-    } catch (err) {
-        console.log(err);
-    }
+// async function feelingLucky() {
+//     try {
+//         const id = Math.ceil(Math.random() * 21);
+//         console.log(id);
+//         const rawData = await fetch(`http://localhost:8000/dogs/${id}`);
+//         const dogData = await rawData.json();
+//         console.log(dogData);
+//         dogURL = dogData.link
+//         console.log(dogURL);
+//         window.open(dogURL);
+//     } catch (err) {
+//         console.log(err);
+//     }
     
+// }
+
+function feelingLucky(e){
+    e.preventDefault();
+    fetch(`http://localhost:8000/dogs`)
+    .then(r => r.json())
+    .then(data => window.open(data[Math.floor(Math.random() * data.length)].link))
+    .catch(console.warn)
 }
+
+feelingLuckyButton.addEventListener('click',feelingLucky);
+
 
 async function whatSearch(search) {
     try {
@@ -88,7 +99,7 @@ async function whatSearch(search) {
 
 // poodleSearchByAttribute("big");
 
-feelingLucky();
+// feelingLucky();
 
 // feelingLuckyButton.addEventListener("click", () => {
 //     feelingLucky();
@@ -99,7 +110,6 @@ poodleSearchButton.addEventListener("submit", (e) => {
     const search = e.target.searchbar.value;
     console.log(search);
     searchResults.innerHTML = "";
-    // poodleSearch(search);
     whatSearch(search);
 });
 
