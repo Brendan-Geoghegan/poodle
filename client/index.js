@@ -54,7 +54,6 @@ const createSearchResult = (dogData) => {
     result.appendChild(dogURL);
 }
 
-
 function feelingLucky(e){
     e.preventDefault();
     fetch(`http://localhost:8000/dogs`)
@@ -64,10 +63,6 @@ function feelingLucky(e){
 }
 
 feelingLuckyButton.addEventListener('submit',feelingLucky);
-
-
-
-
 
 async function whatSearch(search) {
     try {
@@ -85,7 +80,6 @@ async function whatSearch(search) {
     }
 }
 
-
 poodleSearchButton.addEventListener("submit", (e) => {
     e.preventDefault();
     const search = e.target.searchbar.value;
@@ -96,9 +90,7 @@ poodleSearchButton.addEventListener("submit", (e) => {
 
 });
 
-
 // ***************************** Searching via keywords
-
 
 function searchFilter(data, keywords){
     const keywordsArray = keywords.split(' ').filter(w => w.length !== 0);
