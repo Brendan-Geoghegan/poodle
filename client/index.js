@@ -2,6 +2,8 @@ const searchResults = document.getElementById('searchResults');
 const feelingLuckyButton = document.getElementById("feelingLuckyButton");
 const poodleSearchButton = document.getElementById("poodleSearchForm");
 
+// ********* Searching by breed and attributes
+
 async function poodleSearch(name) {
     try {
         const rawData = await fetch(`http://localhost:8000/dogs/breed/${name}`);
@@ -64,6 +66,9 @@ function feelingLucky(e){
 feelingLuckyButton.addEventListener('submit',feelingLucky);
 
 
+
+
+
 async function whatSearch(search) {
     try {
         const rawData = await fetch(`http://localhost:8000/dogs`);
@@ -86,6 +91,42 @@ poodleSearchButton.addEventListener("submit", (e) => {
     const search = e.target.searchbar.value;
     console.log(search);
     searchResults.innerHTML = "";
-    whatSearch(search);
+    // whatSearch(search);
+    poodleSearchAny(search);
+
 });
 
+
+// ***************************** Searching via keywords
+
+
+function searchFilter(data, keywords){
+    const keywordsArray = keywords.split(' ').filter(w => w.length !== 0);
+    const matched = [];
+    data.forEach(dog => {
+        for(keyword of keywordsArray){
+            let kw = new RegExp(keyword,'ig');
+            if (dog.breed.match(kw) || dog.attributes.some(atr => atr.match(kw))){
+                console.log("here");
+                matched.push(dog);
+                break;
+            }
+        };
+    })
+    return matched
+}
+
+async function poodleSearchAny(keywords) {
+    try {
+        const rawData = await fetch(`http://localhost:8000/dogs`);
+        console.log(rawData);
+        const dogData = await rawData.json();
+        console.log(dogData);
+        const matched = searchFilter(dogData, keywords);
+        for (let i = 0; i < matched.length; i++) {
+            createSearchResult(matched[i]);
+        }
+    } catch (err) {
+        console.log(err);
+    }
+}
