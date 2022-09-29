@@ -49,6 +49,7 @@ const createSearchResult = (dogData) => {
 
     const infoDiv = document.createElement("div");
     infoDiv.style["grid-area"] = "1 / 1 / span 1 / span 1";
+    infoDiv.style["word-break"] = "break-all";
     result.appendChild(infoDiv);
 
     const dogName = document.createElement("h3");
@@ -56,8 +57,11 @@ const createSearchResult = (dogData) => {
     infoDiv.appendChild(dogName);
 
     const dogURL = document.createElement("a");
-    dogURL.textContent = dogData.link;
+    const dogURLText = document.createElement("p");
+    dogURLText.textContent = dogData.link;
+    dogURL.appendChild(dogURLText);
     dogURL.href = dogData.link;
+    dogURLText.style["white-space"] = "normal";
     infoDiv.appendChild(dogURL);
 
     const imageDiv = document.createElement("div");
