@@ -71,7 +71,6 @@ const createSearchResult = (dogData) => {
     const dogImage = document.createElement("img");
     dogImage.style.width = "40%";
     dogImage.style["aspect-ratio"] = "1.4";
-    // dogImage.style.height = "auto";
     dogImage.style.display = "block";
     dogImage.src = dogData.image;
     dogImage.alt = `Picture of ${dogData.breed}`
