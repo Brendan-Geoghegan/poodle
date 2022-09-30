@@ -86,3 +86,8 @@ header {
 }
 
 /* Media queries */
+@media only screen and (max-width: 950px) {
+    .textSize {
+        font-size: 0.9em;
+    }
+}

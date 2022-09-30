@@ -54,12 +54,13 @@ const createSearchResult = (dogData) => {
 
     const dogName = document.createElement("h3");
     dogName.textContent = dogData.breed;
-    dogName.className = "dogName";
+    dogName.className = "textSize";
     infoDiv.appendChild(dogName);
 
     const dogURL = document.createElement("a");
     const dogURLText = document.createElement("p");
     dogURLText.textContent = dogData.link;
+    dogURLText.className = "textSize";
     dogURL.appendChild(dogURLText);
     dogURL.href = dogData.link;
     dogURLText.style["white-space"] = "normal";
