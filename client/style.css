@@ -1,0 +1,93 @@
+body {
+    min-height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+    text-align: center;
+}
+
+.topNav {
+    background-color: white;
+    overflow: hidden;
+  }
+
+.topNav span:nth-of-type(1n+0){
+    color:blue;
+}
+.topNav span:nth-of-type(2n+0){
+    color: rgb(255, 217, 0);
+} 
+.topNav span:nth-of-type(3n+0){
+    color:green;
+}
+.topNav span:nth-of-type(4n+0){
+    color:red;
+}
+
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    justify-content: center;
+    background-color: #f2f2f2;
+    width: 100%;
+}
+
+#footerDivImage {
+    /* display: inline-block;
+    flex:1; */
+    width: 50%;
+}
+
+#footerDivHeader {
+    /* display: inline-block;
+    flex:2; */
+    width:50%;
+}
+
+#bone {
+    /* position: absolute;
+    bottom: 8px;
+    right: 67%;
+    width: 40; */
+    display: block;
+    margin: auto;
+    width: 3%;
+}
+
+#h4Footer {
+    margin: 0;
+    text-align: center;
+}
+
+#poodleLogo{
+    text-align: center
+}
+
+#mainDiv {
+    margin: auto;
+    width: 70%;
+    height: 50%;
+    padding: 10px;
+}
+
+.center {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+  }
+
+#buttonDiv {
+    text-align: center;
+}
+
+/* Media queries */
+@media only screen and (max-width: 950px) {
+    .textSize {
+        font-size: 0.9em;
+    }
+}
