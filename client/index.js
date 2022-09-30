@@ -54,6 +54,7 @@ const createSearchResult = (dogData) => {
 
     const dogName = document.createElement("h3");
     dogName.textContent = dogData.breed;
+    dogName.className = "dogName";
     infoDiv.appendChild(dogName);
 
     const dogURL = document.createElement("a");
