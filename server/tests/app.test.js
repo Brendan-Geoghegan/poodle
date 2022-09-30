@@ -34,4 +34,7 @@ describe("API server", () => {
         }, done)
     })
 
+    it("handles out of range breed", (done) => {
+        request(api).get('/dogs/breed/Pig').expect(404, done);
+    })
 })
